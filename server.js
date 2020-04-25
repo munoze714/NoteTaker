@@ -14,6 +14,13 @@ app.get("/api/notes", function (req, res) {
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+app.post("/api/notes", function (req, res) {
+    console.log(req.body);
+    var newNote = req.body
+    newNote.id = dbJson.length + 1
+    dbJson.push(newNote);
+    res.json(dbJson)
+});
 
 // Listener
 // ===========================================================
