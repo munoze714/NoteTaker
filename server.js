@@ -37,7 +37,7 @@ app.delete("/api/notes/:id", function (req, res) {
     // console.log(' this is the id', req.params.id)
     let keepNote = []
     dbJson.forEach(function (singleNote) {
-        console.log(singleNote);
+        // console.log(singleNote);
         if (singleNote.id != req.params.id) {
             keepNote.push(singleNote);
         }
@@ -52,7 +52,7 @@ app.get("*", function (req, res) {
 
 // Saves New Notes - gives an Id - displays Note to user
 app.post("/api/notes", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     var newNote = req.body
     newNote.id = dbJson.length + 1
     dbJson.push(newNote);
